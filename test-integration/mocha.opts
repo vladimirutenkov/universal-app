@@ -1,0 +1,4 @@
+--harmony
+--compilers js:babel-register
+--recursive
+--require ./test-integration/setup.js

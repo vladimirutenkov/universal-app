@@ -1,0 +1,184 @@
+---
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+
+env:
+  es6: true
+  node: true
+
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: module
+
+rules:
+  # Possible Errors
+  no-await-in-loop: error
+  no-template-curly-in-string: error
+  no-unsafe-negation: error
+
+  # Best Practices
+  curly: error
+  default-case: error
+  dot-notation: error
+  eqeqeq: error
+  guard-for-in: error
+  no-alert: error
+  no-caller: error
+  no-case-declarations: error
+  no-else-return: error
+  no-empty-pattern: error
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-floating-decimal: error
+  no-global-assign: error
+  no-implicit-globals: error
+  no-implied-eval: error
+  no-invalid-this: error
+  no-iterator: error
+  no-labels: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-multi-spaces: error
+  no-new-func: error
+  no-new-wrappers: error
+  no-octal-escape: error
+  no-proto: error
+  no-return-assign: error
+  no-return-await: error
+  no-script-url: error
+  no-self-assign: error
+  no-self-compare: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions: error
+  no-useless-call: error
+  no-useless-concat: error
+  no-useless-escape: error
+  no-useless-return: error
+  no-void: error
+  no-with: error
+  radix:
+    - error
+    - as-needed
+  require-await: error
+  wrap-iife: error
+  yoda: error
+
+  # Variables
+  init-declarations: error
+  no-catch-shadow: error
+  no-shadow-restricted-names: error
+  no-undef-init: error
+
+  # Node.js and CommonJS
+  callback-return: error
+  handle-callback-err: error
+  no-path-concat: error
+  no-sync: error
+
+  # Stylistic Issues
+  array-bracket-spacing: error
+  block-spacing: error
+  brace-style: error
+  camelcase: error
+  comma-dangle:
+    - error
+    - always-multiline
+  comma-spacing: error
+  computed-property-spacing: error
+  eol-last: error
+  func-call-spacing: error
+  indent:
+    - error
+    - 4
+    - SwitchCase: 1
+      MemberExpression: 1
+  jsx-quotes: error
+  key-spacing: error
+  keyword-spacing: error
+  linebreak-style: error
+  max-depth: error
+  max-len:
+    - error
+    - 120
+  max-params:
+    - error
+    - 5
+  max-statements-per-line: error
+  max-statements:
+    - error
+    - 20
+  new-cap:
+    - error
+    - capIsNew: false
+  new-parens: error
+  no-array-constructor: error
+  no-lonely-if: error
+  no-mixed-spaces-and-tabs: error
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+      maxEOF: 1
+      maxBOF: 0
+  no-negated-condition: error
+  no-new-object: error
+  no-tabs: error
+  no-trailing-spaces: error
+  no-unneeded-ternary: error
+  no-whitespace-before-property: error
+  object-curly-newline: error
+  object-curly-spacing:
+    - error
+    - always
+  one-var:
+    - error
+    - never
+  padded-blocks:
+    - error
+    - never
+  quote-props:
+    - error
+    - consistent-as-needed
+  quotes:
+    - error
+    - single
+    - avoid-escape
+  semi-spacing: error
+  semi: error
+  space-before-blocks: error
+  space-before-function-paren:
+    - error
+    - never
+  space-in-parens: error
+  space-infix-ops: error
+  space-unary-ops:
+    - error
+    - words: true
+      nonwords: false
+  spaced-comment: error
+
+  # ECMAScript 6
+  arrow-body-style: error
+  arrow-parens:
+    - error
+    - as-needed
+  arrow-spacing: error
+  constructor-super: error
+  no-class-assign: error
+  no-const-assign: error
+  no-dupe-class-members: error
+  no-duplicate-imports: error
+  no-this-before-super: error
+  no-useless-computed-key: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-var: error
+  object-shorthand: error
+  prefer-const: error
+  prefer-spread: error
+  prefer-template: error
+  rest-spread-spacing: error
+  template-curly-spacing: error

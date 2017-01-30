@@ -1,0 +1,35 @@
+---
+env:
+  browser: true
+
+parserOptions:
+  ecmaFeatures:
+      jsx: true
+
+plugins:
+    - react
+
+rules:
+  # ESLint-plugin-React
+  react/jsx-curly-spacing: error
+  react/jsx-equals-spacing: error
+#  react/jsx-handler-names:
+#    - error
+#    - eventHandlerPrefix: _handle
+  react/jsx-indent: error
+  react/jsx-no-bind:
+    - error
+    - allowArrowFunctions: true
+  react/jsx-pascal-case: error
+  react/jsx-space-before-closing:
+    - error
+    - never
+
+  react/no-set-state: error
+  react/prefer-es6-class: error
+  react/prefer-stateless-function: error
+  react/prop-types: off # TODO: enable
+  react/self-closing-comp:
+    - error
+    - html: false
+  react/jsx-wrap-multilines: error

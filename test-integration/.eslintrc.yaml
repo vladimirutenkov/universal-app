@@ -1,0 +1,4 @@
+---
+extends:
+  - ../client/.eslintrc.yaml
+  - ../test/.eslintrc.yaml
