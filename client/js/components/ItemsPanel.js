@@ -8,7 +8,7 @@ import Item from './Item';
 class ItemsPanel extends Component {
     render() {
         const placeholders = this.props.items.map((x, i) =>
-            <Placeholder key={i} pos={i} item={x} actions={this.props.actions}>
+            <Placeholder key={i} pos={i} actions={this.props.actions}>
                 <Item {...x} pos={i}/>
             </Placeholder>
         );
