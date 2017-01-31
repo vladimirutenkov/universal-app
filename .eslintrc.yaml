@@ -129,10 +129,12 @@ rules:
   no-trailing-spaces: error
   no-unneeded-ternary: error
   no-whitespace-before-property: error
-  object-curly-newline: error
   object-curly-spacing:
     - error
     - always
+  object-property-newline:
+      - error
+      - allowMultiplePropertiesPerLine: true
   one-var:
     - error
     - never
