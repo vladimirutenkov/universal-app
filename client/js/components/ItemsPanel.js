@@ -9,7 +9,7 @@ class ItemsPanel extends Component {
     render() {
         const placeholders = this.props.items.map((x, i) =>
             <Placeholder key={i} pos={i} actions={this.props.actions}>
-                <Item {...x} pos={i}/>
+                <Item {...x}/>
             </Placeholder>
         );
 

@@ -1,6 +1,20 @@
 import React from 'react';
-import { DropTarget } from 'react-dnd';
+import { DragSource, DropTarget } from 'react-dnd';
+import { compose } from 'redux';
 import { draggableTypes } from '../constants';
+
+const placeSource = {
+    beginDrag(props) {
+        return { pos: props.pos };
+    },
+};
+
+function collectSource(connect, monitor) {
+    return {
+        connectDragSource: connect.dragSource(),
+        isDragging: monitor.isDragging(),
+    };
+}
 
 const placeTarget = {
     drop(props, monitor) {
@@ -17,10 +31,13 @@ function collectTarget(connect, monitor) {
     };
 }
 
-const Placeholder = props => props.connectDropTarget(
-    <div className={`place${props.isOver ? ' over' : ''}`}>
+const Placeholder = props => props.connectDropTarget(props.connectDragSource(
+    <div className={`place${props.isOver ? ' over' : ''}${props.isDragging ? ' dragging' : ''}`}>
         {props.children}
     </div>
-);
+));
 
-export default DropTarget(draggableTypes.ITEM, placeTarget, collectTarget)(Placeholder);
+export default compose(
+    DropTarget(draggableTypes.ITEM, placeTarget, collectTarget),
+    DragSource(draggableTypes.ITEM, placeSource, collectSource),
+)(Placeholder);

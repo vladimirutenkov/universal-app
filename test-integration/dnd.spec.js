@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import React, { Component } from 'react';
 import { DragDropContext } from 'react-dnd';
 import TestBackend from 'react-dnd-test-backend';
-import { ItemsPanel, Item, Placeholder } from '../client/js/components';
+import { ItemsPanel, Placeholder } from '../client/js/components';
 import { ActionsStub } from './helpers';
 
 describe('ItemsPanel', function() {
@@ -33,33 +33,34 @@ describe('ItemsPanel', function() {
             />
         );
 
-        const item = root.find(Item).at(0);
-        const place = root.find(Placeholder).at(1);
+        const place = root.find(Placeholder);
+        const source = place.at(0);
+        const target = place.at(1);
         const backend = root.node.getManager().getBackend();
 
         return {
             actions,
             root,
-            item,
-            place,
+            source,
+            target,
             backend,
         };
     }
 
     it('allows to drag\'n\' drop Items', function() {
-        const { actions, backend, item, place } = setup();
+        const { actions, backend, source, target } = setup();
 
-        backend.simulateBeginDrag([item.node.getHandlerId()]);
-        expect(item).to.have.className('dragging');
+        backend.simulateBeginDrag([source.node.getDecoratedComponentInstance().getHandlerId()]);
+        expect(source).to.have.className('dragging');
 
-        backend.simulateHover([place.node.getHandlerId()]);
-        expect(place).to.have.className('over');
+        backend.simulateHover([target.node.getHandlerId()]);
+        expect(target).to.have.className('over');
 
         backend.simulateDrop();
         expect(actions.move).to.have.been.calledWith(0, 1);
-        expect(place).to.not.have.className('over');
+        expect(target).to.not.have.className('over');
 
         backend.simulateEndDrag();
-        expect(item).to.not.have.className('dragging');
+        expect(source).to.not.have.className('dragging');
     });
 });
